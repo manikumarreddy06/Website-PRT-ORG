@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: appweb-deployment
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: appweb
+  template:
+    metadata:
+      labels:
+        app: appweb
+    spec:
+      containers:
+      - name: appweb
+        image: mahi35456/appweb
+        ports:
+        - containerPort: 80
